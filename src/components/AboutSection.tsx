@@ -1,31 +1,58 @@
 const AboutSection = () => {
   return (
-    <section id="about" className="relative min-h-[80vh] flex items-center overflow-hidden">
-      {/* Full background image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=80"
-          alt="Hairkunst salon styling"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark gradient overlay for text readability — heavier on left */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-      </div>
+    <section id="about" className="relative section-padding bg-gradient-section overflow-hidden">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        {/* Left: Image */}
+        <div className="relative">
+          <div className="rounded-2xl overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80"
+              alt="Hairkunst salon interior"
+              className="w-full h-[500px] object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border-2 border-primary/20 rounded-2xl -z-10" />
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20 md:py-32 w-full">
-        <div className="max-w-xl space-y-8">
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-foreground italic leading-[1.05]">
-            Welcome. <span className="text-gradient">Guten Tag</span>
-          </h2>
+        {/* Right: Text */}
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">About Us</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground italic leading-tight">
+              Welcome.
+              <br />
+              <span className="text-gradient">Guten Tag.</span>
+            </h2>
+          </div>
 
-          <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-            At Hairkunst Salon, we pride ourselves on delivering exceptional
-            hair services tailored to your unique style. Experience a relaxing
-            atmosphere and expert stylists dedicated to making you look
-            and feel your best. Every visit is a curated journey of transformation.
-          </p>
+          <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <p>
+              At Hairkunst, we believe hair is more than style — it's an expression of identity.
+              Founded on the principles of European precision and Asian artistry, our master
+              stylists blend techniques from around the world to create looks that are uniquely yours.
+            </p>
+            <p>
+              Every visit is a curated experience. From the moment you step into our salon,
+              you're enveloped in an atmosphere of calm luxury. Our commitment to using only
+              premium, sustainable products ensures your hair not only looks extraordinary but
+              feels extraordinary.
+            </p>
+          </div>
+
+          <div className="flex gap-12 pt-4">
+            <div>
+              <p className="font-serif text-3xl font-bold text-primary">15+</p>
+              <p className="text-sm text-muted-foreground tracking-wider uppercase">Years</p>
+            </div>
+            <div>
+              <p className="font-serif text-3xl font-bold text-primary">50K+</p>
+              <p className="text-sm text-muted-foreground tracking-wider uppercase">Clients</p>
+            </div>
+            <div>
+              <p className="font-serif text-3xl font-bold text-primary">3</p>
+              <p className="text-sm text-muted-foreground tracking-wider uppercase">Outlets</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

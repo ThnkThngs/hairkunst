@@ -1,28 +1,37 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Menu, X } from "lucide-react";
+import { useActiveSection, scrollToSection } from "@/hooks/useScrollAnimation";
 
+/**
+ * To add a new nav item, just append an entry here.
+ * Make sure the matching section has the same `id`.
+ */
 const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Outlets", href: "#outlets" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#hero", id: "hero" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Gallery", href: "#gallery", id: "gallery" },
+  { label: "Outlets", href: "#outlets", id: "outlets" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
+
+const HEADER_HEIGHT = 80;
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const sectionIds = useMemo(() => navLinks.map((l) => l.id), []);
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection(href, HEADER_HEIGHT);
   };
 
   return (
@@ -30,6 +39,8 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "glass shadow-lg" : "bg-transparent"
       }`}
+      role="navigation"
+      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
         <a
@@ -40,19 +51,32 @@ const Navbar = () => {
           HAIRKUNST
         </a>
 
-        {/* Desktop */}
+        {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                className="text-sm font-medium tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 relative ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0"
+                    }`}
+                  />
+                </a>
+              </li>
+            );
+          })}
         </ul>
 
         <a
@@ -69,6 +93,7 @@ const Navbar = () => {
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -78,17 +103,23 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden glass animate-slide-down">
           <ul className="flex flex-col items-center gap-6 py-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                  className="text-sm font-medium tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`text-sm font-medium tracking-widest uppercase transition-colors ${
+                      isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })}
             <li>
               <a
                 href="https://booking.hairkunst.com"

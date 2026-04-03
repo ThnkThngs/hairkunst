@@ -1,4 +1,5 @@
 import { MapPin, Phone, Clock } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const outlets = [
   {
@@ -28,62 +29,63 @@ const OutletsSection = () => {
   return (
     <section id="outlets" className="section-padding bg-gradient-section">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">Find Us</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-            Our <span className="text-gradient">Outlets</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Visit any of our three premium salon locations across Germany.
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-16 space-y-4">
+            <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">Find Us</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              Our <span className="text-gradient">Outlets</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Visit any of our three premium salon locations across Germany.
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {outlets.map((outlet) => (
-            <div
-              key={outlet.name}
-              className="group rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/40 transition-all duration-500"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={outlet.image}
-                  alt={outlet.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-              </div>
-
-              <div className="p-6 space-y-4">
-                <h3 className="font-serif text-xl font-semibold text-foreground">{outlet.name}</h3>
-
-                <div className="space-y-3 text-sm text-muted-foreground">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>{outlet.address}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-primary shrink-0" />
-                    <a href={`tel:${outlet.phone.replace(/\s/g, "")}`} className="hover:text-primary transition-colors">
-                      {outlet.phone}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-4 h-4 text-primary shrink-0" />
-                    <span>{outlet.hours}</span>
-                  </div>
+          {outlets.map((outlet, i) => (
+            <AnimatedSection key={outlet.name} delay={0.15 * i}>
+              <div className="group rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/40 transition-all duration-500 h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={outlet.image}
+                    alt={outlet.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 </div>
 
-                <a
-                  href={`https://maps.google.com/?q=${encodeURIComponent(outlet.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2 text-sm text-primary font-medium tracking-wider uppercase hover:text-accent transition-colors"
-                >
-                  Get Directions →
-                </a>
+                <div className="p-6 space-y-4">
+                  <h3 className="font-serif text-xl font-semibold text-foreground">{outlet.name}</h3>
+
+                  <div className="space-y-3 text-sm text-muted-foreground">
+                    <div className="flex items-start gap-3">
+                      <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <span>{outlet.address}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Phone className="w-4 h-4 text-primary shrink-0" />
+                      <a href={`tel:${outlet.phone.replace(/\s/g, "")}`} className="hover:text-primary transition-colors">
+                        {outlet.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <Clock className="w-4 h-4 text-primary shrink-0" />
+                      <span>{outlet.hours}</span>
+                    </div>
+                  </div>
+
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(outlet.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-sm text-primary font-medium tracking-wider uppercase hover:text-accent transition-colors"
+                  >
+                    Get Directions →
+                  </a>
+                </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

@@ -2,16 +2,13 @@ import { useState, useEffect, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 import { useActiveSection, scrollToSection } from "@/hooks/useScrollAnimation";
 
-/**
- * To add a new nav item, just append an entry here.
- * Make sure the matching section has the same `id`.
- */
 const navLinks = [
   { label: "Home", href: "#hero", id: "hero" },
   { label: "About", href: "#about", id: "about" },
+  { label: "Story", href: "#story", id: "story" },
   { label: "Services", href: "#services", id: "services" },
-  { label: "Gallery", href: "#gallery", id: "gallery" },
   { label: "Outlets", href: "#outlets", id: "outlets" },
+  { label: "Gallery", href: "#gallery", id: "gallery" },
   { label: "Contact", href: "#contact", id: "contact" },
 ];
 
@@ -37,7 +34,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass shadow-lg" : "bg-transparent"
+        scrolled ? "glass shadow-sm" : "bg-transparent"
       }`}
       role="navigation"
       aria-label="Main navigation"
@@ -83,7 +80,7 @@ const Navbar = () => {
           href="https://booking.hairkunst.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold tracking-wider uppercase rounded-full hover:bg-accent transition-colors duration-300"
+          className="hidden md:inline-flex px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold tracking-wider uppercase rounded-full hover:bg-primary/90 transition-colors duration-300"
         >
           Book Now
         </a>
@@ -101,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden glass animate-slide-down">
+        <div className="md:hidden glass animate-slide-down border-t border-border">
           <ul className="flex flex-col items-center gap-6 py-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;

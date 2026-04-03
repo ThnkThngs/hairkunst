@@ -3,10 +3,10 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 const outlets = [
   {
-    name: "Hairkunst Berlin Mitte",
-    address: "Friedrichstraße 123, 10117 Berlin",
-    phone: "+49 30 1234 5678",
-    hours: "Tue–Sat: 10:00 – 20:00",
+    name: "Hairkunst @ The Curve",
+    address: "The Curve, Mutiara Damansara, 47800 Petaling Jaya, Selangor",
+    phone: "+60 3 1234 5678",
+    hours: " 10:00 – 20:00",
     image: "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&q=80",
   },
   {

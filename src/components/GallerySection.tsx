@@ -39,9 +39,6 @@ const galleryImages = [
   },
 ];
 
-/** Stagger delay per gallery card (seconds) */
-const STAGGER = 0.1;
-
 const GallerySection = () => {
   return (
     <section id="gallery" className="section-padding bg-gradient-section">
@@ -60,7 +57,7 @@ const GallerySection = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[250px]">
           {galleryImages.map((image, index) => (
-            <AnimatedSection key={index} delay={STAGGER * index} direction="scale" className={image.span}>
+            <AnimatedSection key={index} delay={0.08 * index} direction="scale" className={image.span}>
               <div className="group relative rounded-2xl overflow-hidden cursor-pointer h-full">
                 <img
                   src={image.src}

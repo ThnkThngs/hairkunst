@@ -1,11 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Menu, X } from "lucide-react";
-import { useActiveSection, scrollToSection } from "@/hooks/useScrollAnimation";
+import { useActiveSection } from "@/hooks/useScrollAnimation";
 
-/**
- * To add a new nav item, just append an entry here.
- * Make sure the matching section has the same `id`.
- */
 const navLinks = [
   { label: "Home", href: "#hero", id: "hero" },
   { label: "About", href: "#about", id: "about" },
@@ -15,8 +11,6 @@ const navLinks = [
   { label: "Contact", href: "#contact", id: "contact" },
 ];
 
-const HEADER_HEIGHT = 80;
-
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -25,13 +19,13 @@ const Navbar = () => {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleClick = (href: string) => {
     setMobileOpen(false);
-    scrollToSection(href, HEADER_HEIGHT);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -39,8 +33,6 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "glass shadow-lg" : "bg-transparent"
       }`}
-      role="navigation"
-      aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-20">
         <a
@@ -51,32 +43,28 @@ const Navbar = () => {
           HAIRKUNST
         </a>
 
-        {/* Desktop links */}
+        {/* Desktop */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                  aria-current={isActive ? "true" : undefined}
-                  className={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 relative ${
-                    isActive
-                      ? "text-primary font-semibold"
-                      : "text-muted-foreground hover:text-primary"
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                className={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 relative ${
+                  activeSection === link.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    activeSection === link.id ? "w-full" : "w-0"
                   }`}
-                >
-                  {link.label}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
-                      isActive ? "w-full" : "w-0"
-                    }`}
-                  />
-                </a>
-              </li>
-            );
-          })}
+                />
+              </a>
+            </li>
+          ))}
         </ul>
 
         <a
@@ -93,7 +81,6 @@ const Navbar = () => {
           className="md:hidden text-foreground"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -103,23 +90,19 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden glass animate-slide-down">
           <ul className="flex flex-col items-center gap-6 py-8">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                    aria-current={isActive ? "true" : undefined}
-                    className={`text-sm font-medium tracking-widest uppercase transition-colors ${
-                      isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              );
-            })}
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
+                  className={`text-sm font-medium tracking-widest uppercase transition-colors ${
+                    activeSection === link.id ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
             <li>
               <a
                 href="https://booking.hairkunst.com"

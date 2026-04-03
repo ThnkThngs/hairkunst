@@ -40,9 +40,6 @@ const services = [
   },
 ];
 
-/** Stagger delay per service card (seconds) */
-const STAGGER = 0.1;
-
 const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-gradient-section">
@@ -61,7 +58,7 @@ const ServicesSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
-            <AnimatedSection key={service.title} delay={STAGGER * i} direction="scale">
+            <AnimatedSection key={service.title} delay={0.1 * i} direction="scale">
               <div className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_hsl(280_60%_65%/0.1)] h-full">
                 <div className="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
                   <service.icon className="w-7 h-7 text-primary" />

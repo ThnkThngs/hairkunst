@@ -1,18 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Menu, X } from "lucide-react";
+import { useActiveSection } from "@/hooks/useScrollAnimation";
 
 const navLinks = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Outlets", href: "#outlets" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#hero", id: "hero" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Services", href: "#services", id: "services" },
+  { label: "Gallery", href: "#gallery", id: "gallery" },
+  { label: "Outlets", href: "#outlets", id: "outlets" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const sectionIds = useMemo(() => navLinks.map((l) => l.id), []);
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -47,9 +50,18 @@ const Navbar = () => {
               <a
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                className="text-sm font-medium tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+                className={`text-sm font-medium tracking-widest uppercase transition-colors duration-300 relative ${
+                  activeSection === link.id
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {link.label}
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${
+                    activeSection === link.id ? "w-full" : "w-0"
+                  }`}
+                />
               </a>
             </li>
           ))}
@@ -83,7 +95,9 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleClick(link.href); }}
-                  className="text-sm font-medium tracking-widest uppercase text-muted-foreground hover:text-primary transition-colors"
+                  className={`text-sm font-medium tracking-widest uppercase transition-colors ${
+                    activeSection === link.id ? "text-primary" : "text-muted-foreground hover:text-primary"
+                  }`}
                 >
                   {link.label}
                 </a>

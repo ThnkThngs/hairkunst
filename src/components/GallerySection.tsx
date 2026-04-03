@@ -3,19 +3,19 @@ import AnimatedSection from "@/components/AnimatedSection";
 const galleryImages = [
   {
     src: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=600&q=80",
-    alt: "Vibrant red hair coloring",
+    alt: "Vibrant color transformation",
     label: "Color Transformation",
     span: "row-span-2",
   },
   {
     src: "https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=600&q=80",
-    alt: "Elegant blonde waves",
-    label: "Blonde Balayage",
+    alt: "Blonde balayage highlights",
+    label: "Balayage",
     span: "",
   },
   {
     src: "https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=80",
-    alt: "Sleek bob haircut",
+    alt: "Sleek bob precision cut",
     label: "Precision Cut",
     span: "",
   },
@@ -27,8 +27,8 @@ const galleryImages = [
   },
   {
     src: "https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80",
-    alt: "Creative color highlights",
-    label: "Creative Color",
+    alt: "Hijabi-friendly styling",
+    label: "Hijabi-Friendly",
     span: "row-span-2",
   },
   {
@@ -39,7 +39,6 @@ const galleryImages = [
   },
 ];
 
-/** Stagger delay per gallery card (seconds) */
 const STAGGER = 0.1;
 
 const GallerySection = () => {
@@ -68,9 +67,9 @@ const GallerySection = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-sm tracking-wider uppercase text-primary font-medium">{image.label}</p>
+                  <p className="text-sm tracking-wider uppercase text-primary-foreground font-medium">{image.label}</p>
                 </div>
               </div>
             </AnimatedSection>

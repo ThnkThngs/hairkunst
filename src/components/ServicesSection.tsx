@@ -1,4 +1,5 @@
 import { Scissors, Palette, Sparkles, Wind, Heart, Crown } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const services = [
   {
@@ -43,29 +44,30 @@ const ServicesSection = () => {
   return (
     <section id="services" className="section-padding bg-gradient-section">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">What We Offer</p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-            Our <span className="text-gradient">Services</span>
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Each service is a personalized experience, crafted with attention to detail and a passion for perfection.
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-16 space-y-4">
+            <p className="text-sm tracking-[0.3em] uppercase text-primary font-medium">What We Offer</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+              Our <span className="text-gradient">Services</span>
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Each service is a personalized experience, crafted with attention to detail and a passion for perfection.
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_hsl(280_60%_65%/0.1)]"
-            >
-              <div className="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-primary" />
+          {services.map((service, i) => (
+            <AnimatedSection key={service.title} delay={0.1 * i} direction="scale">
+              <div className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_hsl(280_60%_65%/0.1)] h-full">
+                <div className="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                  <service.icon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{service.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6">{service.description}</p>
+                <p className="text-primary font-semibold tracking-wider text-sm">{service.price}</p>
               </div>
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">{service.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6">{service.description}</p>
-              <p className="text-primary font-semibold tracking-wider text-sm">{service.price}</p>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
       </div>

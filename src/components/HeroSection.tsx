@@ -1,20 +1,16 @@
 import { ChevronDown } from "lucide-react";
-import { useParallax } from "@/hooks/useScrollAnimation";
 
 const HeroSection = () => {
-  const parallaxRef = useParallax(0.15);
-
   return (
     <section id="hero" className="relative min-h-screen flex bg-background overflow-hidden">
-      {/* Left: Large image with parallax */}
-      <div className="hidden md:block md:w-[63%] relative overflow-hidden">
-        <div ref={parallaxRef} className="w-full h-[120%] -mt-[10%]">
-          <img
-            src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1200&q=80"
-            alt="Vibrant purple and pink hair styling"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Left: Large image — edge to edge */}
+      <div className="hidden md:block md:w-[63%] relative">
+        <img
+          src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1200&q=80"
+          alt="Vibrant purple and pink hair styling"
+          className="w-full h-full object-cover"
+        />
+        {/* Subtle gradient blending into right panel */}
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent" />
       </div>
 

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const ContactSection = () => {

@@ -24,6 +24,7 @@ const Index = () => {
       <TestimonialsSection />
       <OutletsSection />
       <DashingDivaSection />
+      <PromotionsSection />
       <GallerySection />
       <InstagramSection />
       <ContactSection />

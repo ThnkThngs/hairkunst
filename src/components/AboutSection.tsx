@@ -29,7 +29,13 @@ const AboutSection = () => {
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection delay={0.15}>
+            <p className="text-primary/80 text-sm tracking-wide font-medium">
+              Premium salons across Klang Valley, Malaysia, blending European precision with Asian artistry.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.25}>
             <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
               At Hairkunst Salon, we pride ourselves on delivering exceptional
               hair services tailored to your unique style. Experience a relaxing

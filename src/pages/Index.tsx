@@ -3,11 +3,13 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import StorySection from "@/components/StorySection";
 import ServicesSection from "@/components/ServicesSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import OutletsSection from "@/components/OutletsSection";
 import DashingDivaSection from "@/components/DashingDivaSection";
 import GallerySection from "@/components/GallerySection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -17,11 +19,13 @@ const Index = () => {
       <AboutSection />
       <StorySection />
       <ServicesSection />
+      <TestimonialsSection />
       <OutletsSection />
       <DashingDivaSection />
       <GallerySection />
       <ContactSection />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -19,6 +19,20 @@ const ContactSection = () => {
           </p>
         </AnimatedSection>
 
+        <AnimatedSection delay={0.2}>
+          <p className="text-muted-foreground flex items-center justify-center gap-2">
+            <MessageCircle className="w-4 h-4 text-[#25D366]" />
+            <a
+              href="https://wa.me/60163541201"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              WhatsApp us for quick bookings and questions.
+            </a>
+          </p>
+        </AnimatedSection>
+
         <AnimatedSection delay={0.3}>
           <a
             href="https://booking.hairkunst.com"

@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { Menu, X } from "lucide-react";
 import { useActiveSection, scrollToSection } from "@/hooks/useScrollAnimation";
+import hairkunstLogo from "@/assets/hairkunst-logo.png";
 
 const navLinks = [
   { label: "Home", href: "#hero", id: "hero" },
@@ -43,9 +44,8 @@ const Navbar = () => {
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); handleClick("#hero"); }}
-          className="font-serif text-2xl font-bold tracking-wider text-foreground"
         >
-          HAIRKUNST
+          <img src={hairkunstLogo} alt="Hairkunst" className="h-8 w-auto" />
         </a>
 
         {/* Desktop links */}

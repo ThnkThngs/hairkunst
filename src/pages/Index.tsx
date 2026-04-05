@@ -7,6 +7,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import OutletsSection from "@/components/OutletsSection";
 import DashingDivaSection from "@/components/DashingDivaSection";
 import GallerySection from "@/components/GallerySection";
+import InstagramSection from "@/components/InstagramSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -23,6 +24,7 @@ const Index = () => {
       <OutletsSection />
       <DashingDivaSection />
       <GallerySection />
+      <InstagramSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />

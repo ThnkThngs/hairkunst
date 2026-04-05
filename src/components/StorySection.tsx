@@ -37,10 +37,12 @@ const StorySection = () => {
 
             <AnimatedSection delay={0.25} direction="right">
               <p className="text-muted-foreground leading-relaxed">
-                With a passion for hair artistry and a commitment to customer
-                satisfaction, we strive to provide a welcoming and relaxing
-                experience for every client. Visit us today and let us transform
-                your hair into a masterpiece.
+                Our stylists are trained in both European and Asian cutting
+                techniques to suit diverse hair textures and modest styling
+                needs. With a passion for hair artistry and a commitment to
+                customer satisfaction, we strive to provide a welcoming and
+                relaxing experience for every client. Visit us today and let
+                us transform your hair into a masterpiece.
               </p>
             </AnimatedSection>
 

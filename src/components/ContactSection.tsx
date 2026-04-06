@@ -23,7 +23,7 @@ const ContactSection = () => {
           <p className="text-muted-foreground flex items-center justify-center gap-2">
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <a
-              href="https://wa.me/60163541201"
+              href="https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"

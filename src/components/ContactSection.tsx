@@ -35,7 +35,7 @@ const ContactSection = () => {
 
         <AnimatedSection delay={0.3}>
           <a
-            href="https://booking.hairkunst.com"
+            href="https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-10 py-4 bg-primary text-primary-foreground font-semibold tracking-wider uppercase text-sm rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20 group"

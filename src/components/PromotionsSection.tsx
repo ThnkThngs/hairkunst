@@ -7,21 +7,21 @@ const offers = [
     title: "First Visit Special",
     description: "Enjoy 20% off any service on your first visit to any Hairkunst outlet.",
     cta: "Book Now",
-    href: "https://booking.hairkunst.com",
+    href: "https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment.",
   },
   {
     tag: "Seasonal",
     title: "Raya Glam Package",
     description: "Cut, color & styling bundle — look your best this festive season. From RM 250.",
     cta: "Learn More",
-    href: "https://booking.hairkunst.com",
+    href: "https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment.",
   },
   {
     tag: "Loyalty",
     title: "Refer a Friend",
     description: "Both you and your friend get RM 30 off your next appointment.",
     cta: "Get Referral Code",
-    href: "https://wa.me/60163541201?text=Hi%20I%27d%20like%20a%20referral%20code",
+    href: "https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20a%20referral%20code",
   },
 ];
 

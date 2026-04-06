@@ -119,7 +119,7 @@ const Navbar = () => {
             })}
             <li>
               <a
-                href="https://booking.hairkunst.com"
+                href="https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-6 py-2.5 bg-primary text-primary-foreground text-sm font-semibold tracking-wider uppercase rounded-full"

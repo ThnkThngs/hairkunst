@@ -36,7 +36,7 @@ const DashingDivaSection = () => {
 
             <AnimatedSection delay={0.35} direction="left">
               <a
-                href="https://booking.hairkunst.com"
+                href="https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-accent text-accent-foreground text-sm font-semibold tracking-wider uppercase rounded-full hover:bg-accent/90 transition-all duration-300 shadow-lg shadow-accent/20 group"

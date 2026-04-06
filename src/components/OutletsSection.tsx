@@ -1,5 +1,8 @@
 import { MapPin, ArrowUpRight, Map } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import outletCurve from "@/assets/outlet-curve.jpg";
+import outletMelawati from "@/assets/outlet-melawati.jpeg";
+import outletShahalam from "@/assets/outlet-shahalam.jpeg";
 
 const outlets = [
   {
@@ -7,7 +10,7 @@ const outlets = [
     description:
       "The origin of Hairkunst Salon, our journey began with a passion for beauty and a commitment to excellence. We have grown into a top‑notch destination for hair care where every client is treated like family and every style is a work of art.",
     address: "The Curve, Mutiara Damansara, 47800 Petaling Jaya, Selangor",
-    image: "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&q=80",
+    image: outletCurve,
     mapsUrl: "https://maps.google.com/?q=The+Curve+Mutiara+Damansara+Petaling+Jaya",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.7!2d101.6!3d3.15!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sThe+Curve!5e0!3m2!1sen!2smy!4v1700000000000",
   },
@@ -16,7 +19,7 @@ const outlets = [
     description:
       "At Hairkunst Hijabis, we offer an exceptional experience tailored for our Muslimah clients. Enter an elegant space where your hair receives the highest care and professionalism.",
     address: "Melawati Mall, 53100 Kuala Lumpur, Malaysia",
-    image: "https://images.unsplash.com/photo-1633681122956-4be385e7011a?w=600&q=80",
+    image: outletMelawati,
     mapsUrl: "https://maps.google.com/?q=Melawati+Mall+Kuala+Lumpur",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.5!2d101.75!3d3.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMelawati+Mall!5e0!3m2!1sen!2smy!4v1700000000000",
   },
@@ -25,7 +28,7 @@ const outlets = [
     description:
       "At Hairkunst, our skilled seasonal hairstylists are committed to turning your hair into a beautiful masterpiece. Visit our salon for an exceptional experience and personalized style just for you!",
     address: "Seksyen 13, 40100 Shah Alam, Selangor",
-    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80",
+    image: outletShahalam,
     mapsUrl: "https://maps.google.com/?q=Seksyen+13+Shah+Alam+Selangor",
     mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2!2d101.5!3d3.07!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSeksyen+13+Shah+Alam!5e0!3m2!1sen!2smy!4v1700000000000",
   },

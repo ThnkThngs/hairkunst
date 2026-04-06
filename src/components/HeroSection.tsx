@@ -1,5 +1,6 @@
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { useParallax, scrollToSection } from "@/hooks/useScrollAnimation";
+import heroImg from "@/assets/hero.jpg";
 
 const HeroSection = () => {
   const parallaxRef = useParallax(0.15);
@@ -10,7 +11,7 @@ const HeroSection = () => {
       <div className="hidden md:block md:w-[60%] relative overflow-hidden">
         <div ref={parallaxRef} className="w-full h-[120%] -mt-[10%]">
           <img
-            src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1200&q=80"
+            src={heroImg}
             alt="Vibrant colorful hair styling"
             className="w-full h-full object-cover"
           />
@@ -22,7 +23,7 @@ const HeroSection = () => {
       {/* Mobile: full background image */}
       <div className="md:hidden absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=1200&q=80"
+          src={heroImg}
           alt="Vibrant colorful hair styling"
           className="w-full h-full object-cover opacity-30"
         />

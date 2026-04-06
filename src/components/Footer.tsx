@@ -61,7 +61,7 @@ const Footer = () => {
               <li>@Hairkunst</li>
               <li className="pt-2">
                 <a
-                  href="https://wa.me/601139697861?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
+                  href="https://wa.me/60163541201?text=Hi%20Hairkunst%2C%20I%27d%20like%20to%20book%20an%20appointment."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:text-primary/80 transition-colors font-medium"

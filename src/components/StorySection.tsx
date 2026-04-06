@@ -1,21 +1,47 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import storyStylist from "@/assets/story-stylist.jpg";
+import achievementCert from "@/assets/achievement-cert.jpg";
+import achievementAward from "@/assets/achievement-award.jpg";
 
 const StorySection = () => {
   return (
     <section id="story" className="section-padding bg-gradient-section">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Image */}
-          <AnimatedSection direction="left">
-            <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=800&q=80"
-                alt="Hairkunst salon team"
-                className="w-full h-[400px] md:h-[500px] object-cover"
-                loading="lazy"
-              />
-            </div>
-          </AnimatedSection>
+          {/* Images */}
+          <div className="space-y-4">
+            <AnimatedSection direction="left">
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src={storyStylist}
+                  alt="Hairkunst stylist with client"
+                  className="w-full h-[400px] md:h-[500px] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} direction="left">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src={achievementCert}
+                    alt="Hairkunst achievement certificate"
+                    className="w-full h-[140px] md:h-[180px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="rounded-xl overflow-hidden shadow-lg">
+                  <img
+                    src={achievementAward}
+                    alt="Asia Glory Hair Awards 2024"
+                    className="w-full h-[140px] md:h-[180px] object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
 
           {/* Content */}
           <div className="space-y-6">

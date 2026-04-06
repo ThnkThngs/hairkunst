@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import dashingDivaImg from "@/assets/dashing-diva.jpeg";
 
 const DashingDivaSection = () => {
   return (
@@ -50,8 +51,8 @@ const DashingDivaSection = () => {
           <AnimatedSection direction="right" className="order-1 md:order-2">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1559599101-f09722fb4948?w=800&q=80"
-                alt="Dashing Diva salon"
+                src={dashingDivaImg}
+                alt="Dashing Diva salon interior"
                 className="w-full h-[350px] md:h-[450px] object-cover"
                 loading="lazy"
               />

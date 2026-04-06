@@ -1,5 +1,6 @@
 import AnimatedSection from "@/components/AnimatedSection";
 import { useParallax } from "@/hooks/useScrollAnimation";
+import aboutImg from "@/assets/about-training.jpg";
 
 const AboutSection = () => {
   const parallaxRef = useParallax(0.15);
@@ -10,8 +11,8 @@ const AboutSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         <div ref={parallaxRef} className="w-full h-[130%] -mt-[15%]">
           <img
-            src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1920&q=80"
-            alt="Hairkunst salon interior"
+            src={aboutImg}
+            alt="Hairkunst salon training session"
             className="w-full h-full object-cover"
           />
         </div>

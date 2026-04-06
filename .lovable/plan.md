@@ -1,99 +1,56 @@
 
 
-# Hairkunst Malaysia — Full Site Rebuild Plan
+# Replace Photo Assets with Uploaded Images
 
-## Summary
+## Overview
+Replace all Unsplash stock photos with the 9 uploaded salon photos across 5 sections. The Story section gets expanded to showcase achievement photos alongside the existing stylist image.
 
-Rebuild the existing dark-purple Hairkunst site into a calm, warm, premium Malaysian salon site. The structure changes significantly: new sections (Our Story, Dashing Diva), revised Outlets with Malaysian locations, updated copy throughout, and a completely new color palette shifting from dark purple to warm neutrals with soft gradients.
+## Image Mapping
 
-## Design System Changes
+| # | File | Section | Replaces |
+|---|------|---------|----------|
+| 1 | `The_image_features...` (purple hair) | **Hero** | Unsplash hero image |
+| 2 | `bb.jpg` (stylist + client) | **Story** | Unsplash team photo |
+| 3 | `IMG_2618.jpg` (training scene) | **Welcome/About** | Unsplash salon interior |
+| 4 | `WhatsApp...10.51_edited.jpg` (storefront w/ menu) | **Outlet: The Curve** | Unsplash outlet image |
+| 5 | `WhatsApp...31_2_1.jpeg` (Hijabis arched windows) | **Outlet: Melawati Mall** | Unsplash outlet image |
+| 6 | `WhatsApp...26_1_1.jpeg` (plants/flowers storefront) | **Outlet: Shah Alam** | Unsplash outlet image |
+| 7 | `WhatsApp...14.18.53_1.jpeg` (Dashing Diva interior) | **Dashing Diva** | Unsplash Dashing Diva image |
+| 8 | `achievement.jpg` (certificate) | **Story** | New addition |
+| 9 | `achievement2.jpg` (Asia Glory Awards) | **Story** | New addition |
 
-**Color palette** — Replace dark purple theme with warm, elegant neutrals:
-- Background: warm off-white/cream (e.g. `30 20% 97%`)
-- Foreground: deep warm charcoal
-- Primary: warm rose-gold / muted blush (`350 40% 55%`)
-- Accent: soft gold (`38 60% 55%`)
-- Cards: white with subtle warm border
-- Muted: warm gray tones
-- Gradients: soft cream-to-white, blush tints
+## Implementation Steps
 
-**Typography** — Keep Playfair Display + Inter, but adjust weights for a lighter, airier feel.
+### 1. Copy all 9 images to `src/assets/`
+Copy each uploaded file to a clean filename in `src/assets/` (e.g., `hero.jpg`, `story-stylist.jpg`, `about-training.jpg`, `outlet-curve.jpg`, `outlet-melawati.jpg`, `outlet-shahalam.jpg`, `dashing-diva.jpg`, `achievement-cert.jpg`, `achievement-award.jpg`).
 
-**Utilities** — Update `.text-gradient`, `.bg-gradient-section`, `.glass` to match warm palette. Add `.section-padding` adjustments for generous spacing.
+### 2. Update HeroSection.tsx
+- Import hero image from `@/assets/hero.jpg`
+- Replace both desktop and mobile `src` URLs with the imported asset
 
-## Section Structure (9 sections)
+### 3. Update AboutSection.tsx
+- Import training image from `@/assets/about-training.jpg`
+- Replace the background image URL
 
-### 1. Hero
-- Headline: "Discover Your Perfect Looks"
-- Existing subtext copy
-- Two CTAs: "Book Online" (primary) + "View Our Outlets" (secondary/outline)
-- Hero image placeholder (vibrant hair)
-- Keep split layout but adjust for warm aesthetic
+### 4. Update StorySection.tsx
+- Import stylist image + both achievement images
+- Replace the existing single image with the stylist photo
+- Add a small gallery row below the main image showing the two achievement photos side by side (rounded corners, subtle shadow, same animation style)
 
-### 2. Welcome
-- Reuse existing `AboutSection.tsx` structure
-- Title: "Welcome. Guten Tag" (keep)
-- Updated copy as provided
-- Background image with warm gradient overlay
+### 5. Update OutletsSection.tsx
+- Import all 3 outlet images
+- Replace each outlet's `image` field with the corresponding imported asset
 
-### 3. Our Story (NEW)
-- New component `StorySection.tsx`
-- Title: "Hairkunst Story"
-- Copy about being open since 2007, 200k+ clients
-- Simple text + image layout
+### 6. Update DashingDivaSection.tsx
+- Import Dashing Diva interior image
+- Replace the stock photo URL
 
-### 4. Services
-- Keep existing card grid, update currency to "From RM …"
-- Adjust card styling for warm palette
-- Keep icons and stagger animations
+### 7. Gallery & Instagram sections
+- These remain unchanged (stock placeholders) since no gallery-specific photos were provided
 
-### 5. Premium Outlets (MAJOR REWORK)
-- Title: "Hairkunst Premium Outlets"
-- Three cards: The Curve, Melawati Mall (Hijabis), Shah Alam .13
-- Each with unique description, address placeholder, "Book Now" button
-- Remove German locations entirely
-
-### 6. Dashing Diva (NEW)
-- New component `DashingDivaSection.tsx`
-- Casual, friendly copy about the affordable subsidiary
-- CTA: "Visit Dashing Diva"
-
-### 7. Gallery
-- Keep existing masonry grid, update labels for Malaysian context (balayage, hijabi-friendly, bridal)
-
-### 8. CTA / Experience Block
-- Rework existing `ContactSection.tsx`
-- Headline: "Ready for a Transformation?"
-- Updated subtext + "Book Online" button
-- Remove social icons from this section (move to footer)
-
-### 9. Footer
-- Brand line: "HAIRKUNST – European precision meets Asian artistry."
-- Links: About, Services, Gallery, Outlets, Contact
-- Contact: email, phone, @Hairkunst handle
-
-## Files to Modify
-1. **`src/index.css`** — New warm color tokens, updated gradients/utilities
-2. **`tailwind.config.ts`** — Update color references if needed
-3. **`src/components/HeroSection.tsx`** — New headline, dual CTAs, warm styling
-4. **`src/components/AboutSection.tsx`** — Updated copy, warm overlay
-5. **`src/components/ServicesSection.tsx`** — RM pricing, warm card style
-6. **`src/components/OutletsSection.tsx`** — Three Malaysian locations with descriptions
-7. **`src/components/GallerySection.tsx`** — Updated labels
-8. **`src/components/ContactSection.tsx`** — CTA-focused block
-9. **`src/components/Footer.tsx`** — Updated brand line, links, contact
-10. **`src/components/Navbar.tsx`** — Update nav links for new sections
-
-## Files to Create
-1. **`src/components/StorySection.tsx`** — "Hairkunst Story" section
-2. **`src/components/DashingDivaSection.tsx`** — Subsidiary brand section
-
-## File to Update
-- **`src/pages/Index.tsx`** — Add StorySection and DashingDivaSection in correct order
-
-## Animations & Interactions
-- Keep existing `AnimatedSection`, `useScrollAnimation`, `useParallax` hooks
-- Keep smooth scroll + active nav highlighting
-- Ensure all new sections use `AnimatedSection` wrapper
-- Respect `prefers-reduced-motion`
+## Technical Details
+- All images imported as ES6 modules via `@/assets/` for Vite bundling and optimization
+- No new components or CSS utilities needed
+- Story section layout changes from single image to image + achievement row (flexbox column with gap)
+- All existing responsive behavior, animations, and lazy loading preserved
 
